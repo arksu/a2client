@@ -46,6 +46,10 @@
 				<pathelement path="lib/OtpErlang.jar" />
 				<pathelement path="lib/log4j-1.2.15.jar" />
                 <pathelement path="lib/netty-all-5.0.0.Alpha1.jar" />
+				<pathelement path="lib/gdx.jar" />
+				<pathelement path="lib/gdx-backend-lwjgl.jar" />
+				<pathelement path="lib/netty.jar" />
+				<pathelement path="lib/slf4j-api-1.7.6.jar" />
 			</classpath>
 			<compilerarg value="-Xlint:unchecked" />
 		</javac>
@@ -65,7 +69,7 @@
 			<fileset dir="work/classes" />
 			<manifest>
 				<attribute name="Main-Class" value="com.a2client.Main" />
-				<attribute name="Class-Path" value="lwjgl.jar lwjgl_util.jar slick.jar jorbis-0.0.15.jar jogg-0.0.7.jar OtpErlang.jar log4j-1.2.15.jar netty-all-5.0.0.Alpha1.jar" />
+				<attribute name="Class-Path" value="lwjgl.jar lwjgl_util.jar slick.jar jorbis-0.0.15.jar jogg-0.0.7.jar OtpErlang.jar log4j-1.2.15.jar netty-all-5.0.0.Alpha1.jar gdx.jar " />
 			</manifest>
 		</jar>
 		<chmod file="${jar}" perm="a+x" />
@@ -100,7 +104,7 @@
 
 
 		</yguard>
-		<copy todir="/home/arksu/new_build" file="${obfjar}" />
+		<!--<copy todir="/home/arksu/new_build" file="${obfjar}" />-->
 	</target>
 
 	<target name="jars" depends="build-env, yguard">
@@ -115,19 +119,22 @@
           		<include name="jogg-0.0.7.jar" />
         		<include name="OtpErlang.jar" />
           		<include name="log4j-1.2.15.jar" />
-                <include name="netty-all-5.0.0.Alpha1.jar" />
+                <include name="netty.jar" />
+				<include name="gdx.jar" />
+				<include name="gdx-backend-lwjgl.jar" />
+				<include name="slf4j-api-1.7.6.jar" />
           	</fileset>
       		
-      		<fileset dir="lib/native/windows">
-      			<include name="lwjgl.dll" />
-      			<include name="lwjgl64.dll" />
-      			<include name="OpenAL32.dll" />
-      			<include name="OpenAL64.dll" />
-      		</fileset>
-      		<fileset dir="etc"> 
+      		<!--<fileset dir="lib/native/windows">-->
+      			<!--<include name="lwjgl.dll" />-->
+      			<!--<include name="lwjgl64.dll" />-->
+      			<!--<include name="OpenAL32.dll" />-->
+      			<!--<include name="OpenAL64.dll" />-->
+      		<!--</fileset>-->
+      		<fileset dir="etc">
       			<include name="run.bat" />
       		</fileset>
-      		
+
       		<fileset dir="work">
       			<include name="client.jar" />
       		</fileset>
